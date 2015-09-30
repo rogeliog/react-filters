@@ -49,6 +49,8 @@
     "webpack-hot-middleware": "^2.0.0"
   },
   "dependencies": {
-    "react": "^0.13.0"
+    "node-fetch": "^1.3.3",
+    "react": "^0.13.0",
+    "react-redux": "^3.0.1"
   }
 }
