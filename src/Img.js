@@ -1,23 +1,22 @@
 import React, { Component } from 'react';
-import {filters as filterNames} from './filters'
+import { filters } from './filters';
 
 export class Img extends Component {
-  constructor() {
-    super();
-    this.toCSSProp = this.toCSSProp.bind(this);
-  }
-
-  toCSSProp(rawProp) {
-      const value = this.props[rawProp];
-      if (value) {
-        return `${rawProp}(${value})`
-      }
-  }
-
   render() {
-    const filters = filterNames.map(this.toCSSProp).join(' ');
-    const style = { WebkitFilter: filters }
-    return <img src={this.props.src} style={style} />
+    const style = Object.assign(this._getStyles(), this.props.style);
+    return <img src={this.props.src} style={style} />;
+  }
+
+  _getStyles() {
+    const cssFilters = filters.filter((filter) => this.props[filter.name]).map((filter) => {
+      const value = this.props[filter.name];
+      const normalizedValue = value.includes(filter.unit) ? value : `${value}${filter.unit}`;
+      return `${filter.name}(${normalizedValue})`;
+    }).join(' ');
+
+    return {
+      WebkitFilter: cssFilters
+    };
   }
 }
 
