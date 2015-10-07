@@ -15,7 +15,11 @@ export class Img extends Component {
     }).join(' ');
 
     return {
-      WebkitFilter: cssFilters
+      filter: cssFilters,
+      WebkitFilter: cssFilters,
+      OFilter: cssFilters,
+      MozFilter: cssFilters,
+      msFilter: cssFilters
     };
   }
 }
