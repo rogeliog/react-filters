@@ -3,11 +3,11 @@ import { filters } from './filters';
 
 export class Img extends Component {
   render() {
-    const style = Object.assign(this._getStyles(), this.props.style);
+    const style = Object.assign(this._getCSSFilters(), this.props.style);
     return <img src={this.props.src} style={style} />;
   }
 
-  _getStyles() {
+  _getCSSFilters() {
     const cssFilters = filters.filter((filter) => this.props[filter.name]).map((filter) => {
       const value = this.props[filter.name];
       const normalizedValue = value.includes(filter.unit) ? value : `${value}${filter.unit}`;
