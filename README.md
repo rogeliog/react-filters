@@ -8,7 +8,11 @@ In the mean time you can import [Img.js](https://github.com/rogeliog/react-filte
 
 Apply CSS filters to images
 
+[DEMO](rogeliog.github.io/react-filters)
+
 ## Getting started
+
+
 
 ### Import it
 ```javascript
